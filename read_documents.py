@@ -5,7 +5,8 @@ import sqlite3
 import math
 from text_preprocessing import preprocess_text
 
-files_path = r'.\documents'
+working_dir = os.getcwd()
+files_path = os.path.join(working_dir, "documents") #Path of the documents folder
 DB_PATH = 'InvertedIndex.db'
 
 # Read and return the text content of each document
@@ -14,7 +15,6 @@ def read_pdf_files(file_path):
     doc_texts = {}
 
     for filename in pdf_files:
-        print(f"Processing file: {filename}")
         reader = PdfReader(filename)
         totalText = ""
         for page in reader.pages:
@@ -28,6 +28,7 @@ def process_texts(doc_texts):
     doc_tokens = {}
 
     for doc in doc_texts:
+        print(f"Processing file: {doc}")
         doc_tokens[doc] = preprocess_text(doc_texts[doc])
 
     return doc_tokens

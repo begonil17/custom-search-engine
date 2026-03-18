@@ -1,7 +1,9 @@
+import os
 from read_documents import load_tfidf, load_invertedindex, read_pdf_files
 from text_preprocessing import preprocess_text
 
-files_path = r'.\documents'
+working_dir = os.getcwd()
+files_path = os.path.join(working_dir, "documents") #Path of the documents folder
 
 tf_idf_scores = load_tfidf()
 inverted_index = load_invertedindex()
@@ -71,6 +73,6 @@ while True:
     else:
         for i, result in enumerate(results, 1):
             print(f"\n{'─'*60}")
-            print(f"Result {i}: {result['document']}")
+            print(f"Result {i}: {os.path.basename(result['document'])}")
             print(f"Relevance score: {result['relevance score']:.4f}")
             print(f"Document Content: {result['document content']}")
