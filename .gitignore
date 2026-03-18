@@ -1,0 +1,23 @@
+# Runtime generated files
+InvertedIndex.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Other
+log.txt
